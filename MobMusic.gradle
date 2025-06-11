@@ -1,0 +1,42 @@
+apply plugin: 'com.mob.sdk'
+
+MobSDK {
+    appKey "1e93e2e17fe3e"
+    appSecret "20a214f48119fbbc88bbf729590618c0"
+    ShareSDK {
+        loopShare true
+        devInfo {
+            Wechat {
+                appId "wx0b03034a2b765b42"
+                appSecret "fc8201c4f1d03d706a4ac82ec5d33002"
+                userName "gh_3831ccad2c6a"
+                path "pages/index/index.html?id=1"
+                withShareTicket true
+                miniprogramType 2
+            }
+            QQ {
+                appId "101079909"
+                appKey "24c368eb21ee2235c029b4dd07a48863"
+            }
+            SinaWeibo {
+                appKey "568898243"
+                appSecret "38a4f8204cc784f81f9f0daaf31e02e3"
+                callbackUri "http://www.sharesdk.cn"
+            }
+            WechatMoments {
+                appId "wx0b03034a2b765b42"
+                appSecret "fc8201c4f1d03d706a4ac82ec5d33002"
+            }
+            WechatFavorite {
+                appId "wx0b03034a2b765b42"
+                appSecret "fc8201c4f1d03d706a4ac82ec5d33002"
+            }
+            QZone {
+                appId "101079909"
+                appKey "24c368eb21ee2235c029b4dd07a48863"
+            }
+        }
+    }
+    SMSSDK {
+    }
+}

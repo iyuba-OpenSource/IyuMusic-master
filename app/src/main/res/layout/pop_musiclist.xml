@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/view1"
+        ></androidx.viewpager.widget.ViewPager>
+
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/pop_indicator"
+        android:background="@color/background_light" />
+
+
+    <com.iyuba.music.widget.imageview.PageIndicator
+        android:id="@+id/pop_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view2"
+        android:layout_marginTop="@dimen/row_space_large"
+        android:layout_marginBottom="@dimen/row_space_large"
+        app:pi_circlepadding="@dimen/row_space_medium"
+        app:pi_count="3"
+        app:pi_radius="@dimen/row_space_default"
+        app:pi_stroke="@dimen/line_thin" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/close"
+        android:background="@color/background_light" />
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="关闭"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+</RelativeLayout>

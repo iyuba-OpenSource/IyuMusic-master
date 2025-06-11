@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.iyuba.music.widget.view.ImmersiveInsertFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:calendarview="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/change_name_toolbar"
+            layout="@layout/toolbar_with_opersub" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="50dp"
+                android:background="@mipmap/last"
+                android:onClick="lastMonth" />
+            <TextView
+                android:id="@+id/calendar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="50dp"
+                android:background="@mipmap/next"
+                android:onClick="nextMonth" />
+        </RelativeLayout>
+
+        <com.othershe.calendarview.weiget.WeekView
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="4dp" />
+
+        <com.othershe.calendarview.weiget.CalendarView
+            android:id="@+id/calendar"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            calendarview:choose_type="single"
+            calendarview:show_holiday="true"
+            calendarview:show_lunar="true"
+            calendarview:show_term="true"
+            calendarview:show_last_next="false"
+            calendarview:switch_choose="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="12dp"
+            android:text="提示：打卡分享并且扫码是蓝色圈，否则没有圈；如果今天未打卡分享扫码提示灰色圈。"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/choose_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="12dp"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</com.iyuba.music.widget.view.ImmersiveInsertFrameLayout>

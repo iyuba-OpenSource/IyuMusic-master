@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DevInfor>
+<SinaWeibo AppKey="568898243" AppSecret="38a4f8204cc784f81f9f0daaf31e02e3" RedirectUrl="http://www.sharesdk.cn" />
+<TencentWeibo Enable="false" />
+<Douban Enable="false" />
+<QZone AppId="101079909" AppKey="24c368eb21ee2235c029b4dd07a48863" />
+<Renren Enable="false" />
+<KaiXin Enable="false" />
+<Facebook Enable="false" />
+<Twitter Enable="false" />
+<Evernote Enable="false" />
+<FourSquare Enable="false" />
+<GooglePlus Enable="false" />
+<Instagram Enable="false" />
+<LinkedIn Enable="false" />
+<Tumblr Enable="false" />
+<Email Enable="false" />
+<ShortMessage Enable="false" />
+<Wechat AppId="wx0b03034a2b765b42" AppSecret="fc8201c4f1d03d706a4ac82ec5d33002" userName="gh_3831ccad2c6a" path="pages/index/index.html?id=1" WithShareTicket="true" MiniprogramType="2" />
+<WechatMoments AppId="wx0b03034a2b765b42" AppSecret="fc8201c4f1d03d706a4ac82ec5d33002" />
+<QQ AppId="101079909" AppKey="24c368eb21ee2235c029b4dd07a48863" />
+<Instapaper Enable="false" />
+<Pocket Enable="false" />
+<YouDao Enable="false" />
+<Pinterest Enable="false" />
+<Flickr Enable="false" />
+<Dropbox Enable="false" />
+<VKontakte Enable="false" />
+<WechatFavorite AppId="wx0b03034a2b765b42" AppSecret="fc8201c4f1d03d706a4ac82ec5d33002" />
+<Yixin Enable="false" />
+<YixinMoments Enable="false" />
+<Mingdao Enable="false" />
+<Line Enable="false" />
+<WhatsApp Enable="false" />
+<KakaoTalk Enable="false" />
+<KakaoStory Enable="false" />
+<FacebookMessenger Enable="false" />
+<Alipay Enable="false" />
+<AlipayMoments Enable="false" />
+<Dingding Enable="false" />
+<Youtube Enable="false" />
+<Meipai Enable="false" />
+<Telegram Enable="false" />
+<Cmcc Enable="false" />
+<Reddit Enable="false" />
+<Telecom Enable="false" />
+<Accountkit Enable="false" />
+<Douyin Enable="false" />
+<Wework Enable="false" />
+<HWAccount Enable="false" />
+<Oasis Enable="false" />
+<XMAccount Enable="false" />
+<SnapChat Enable="false" />
+<Kuaishou Enable="false" />
+<Littleredbook Enable="false" />
+<Watermelonvideo Enable="false" />
+<Tiktok Enable="false" />
+<Taptap Enable="false" />
+</DevInfor>

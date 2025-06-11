@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    tools:background="#dcdcdc"
+    tools:layout_margin="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:id="@+id/image_close"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/headline_ic_double_down"
+            app:layout_constraintDimensionRatio="H, 1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".05"
+            app:tint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/text_see"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/image_close"
+            tools:text="@string/headline_go_gallery_see"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_downloading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/text_see"
+            tools:text="@string/headline_video_downloading_info"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/download_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="@id/text_downloading"
+            app:layout_constraintRight_toRightOf="@id/text_downloading"
+            app:layout_constraintTop_toBottomOf="@id/text_downloading">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide33"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".33" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide67"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".67" />
+
+            <ImageView
+                android:id="@+id/image_video_en"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/guide33"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".15"
+                app:tint="@color/colorPrimary"
+                tools:src="@drawable/headline_ic_video_mini_en_undownload" />
+
+            <TextView
+                android:id="@+id/text_video_en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="@id/image_video_en"
+                app:layout_constraintRight_toRightOf="@id/image_video_en"
+                app:layout_constraintTop_toBottomOf="@id/image_video_en"
+                tools:text="@string/headline_en_subtitle_video" />
+
+            <ImageView
+                android:id="@+id/image_video_zh"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintLeft_toRightOf="@id/guide33"
+                app:layout_constraintRight_toLeftOf="@id/guide67"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".15"
+
+                app:tint="@color/colorPrimary"
+                tools:src="@drawable/headline_ic_video_mini_zh_undownload" />
+
+            <TextView
+                android:id="@+id/text_video_zh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/headline_zh_subtitle_video"
+                app:layout_constraintLeft_toLeftOf="@id/image_video_zh"
+                app:layout_constraintRight_toRightOf="@id/image_video_zh"
+                app:layout_constraintTop_toBottomOf="@id/image_video_zh" />
+
+            <ImageView
+                android:id="@+id/image_video"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintLeft_toRightOf="@id/guide67"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".15"
+                app:tint="@color/colorPrimary"
+                tools:src="@drawable/headline_ic_video_mini_undownload" />
+
+            <TextView
+                android:id="@+id/text_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/headline_no_subtitle_video"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="@id/image_video"
+                app:layout_constraintRight_toRightOf="@id/image_video"
+                app:layout_constraintTop_toBottomOf="@id/image_video" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/download_container" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

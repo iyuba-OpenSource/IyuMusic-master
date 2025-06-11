@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/touch_bg"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/announcer_photo"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:layout_marginLeft="@dimen/row_space_large"
+            android:layout_marginRight="@dimen/row_space_large" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/row_space_large"
+            android:layout_toRightOf="@+id/announcer_photo"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/announcer_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:maxLines="1"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/large_text" />
+        </RelativeLayout>
+
+        <com.iyuba.music.widget.imageview.GoImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/row_space_medium"
+            app:go_color="@color/background_complementary"
+            app:go_direction="LEFT"
+            app:go_stroke="@dimen/line_default" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/record_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:layout_marginTop="6dp"
+    android:background="@drawable/shape_item_dubbing_corner4"
+    android:elevation="1dp"
+    android:orientation="vertical"
+    android:paddingBottom="12dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tV_index"
+            style="@style/DubbingIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/index_gray"
+            android:gravity="center"
+            android:padding="4dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="5dp"
+                android:layout_height="5dp" />
+
+            <TextView
+                android:id="@+id/voice_score"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="right"
+                android:background="@drawable/red_circle"
+                android:gravity="center"
+                android:text="100"
+                android:textSize="14sp"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <com.iyuba.textpage.TextPage
+        android:id="@+id/tv_content_en"
+        style="@style/DubbingText"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        tools:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/tv_content_ch"
+        style="@style/DubbingText"
+        android:layout_width="wrap_content"
+        tools:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/default_font_gray_a6_personal"
+        tools:text="这是中文句子这是中文句子这是中文句子这是中文句子"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/ic_record" />
+
+            <FrameLayout
+                android:id="@+id/layout_play_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="18dp"
+                android:layout_toStartOf="@id/iv_record">
+
+                <ImageView
+                    android:id="@+id/iv_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@drawable/ic_play"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/iv_pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:src="@drawable/ic_pause_talk"
+                    android:visibility="invisible"
+                    tools:visibility="visible"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_time"
+                style="@style/DubbingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@id/layout_play_pause"
+                tools:text="xxs" />
+
+            <com.iyuba.music.dubbing.views.DubbingProgressBar
+                android:id="@+id/progress"
+                style="@style/mProgress_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:layout_toLeftOf="@id/tv_time" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

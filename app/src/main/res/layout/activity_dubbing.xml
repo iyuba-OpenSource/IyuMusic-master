@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.devbrackets.android.exomedia.ui.widget.VideoView
+        android:id="@+id/video_view_dub"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/preview_dubbing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/shape_green_corner"
+        android:paddingLeft="60dp"
+        android:paddingTop="10dp"
+        android:paddingRight="60dp"
+        android:paddingBottom="10dp"
+        android:text="预览配音"
+        android:textColor="@color/white" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/preview_dubbing"
+        android:layout_below="@id/video_view_dub">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background" />
+
+        <FrameLayout
+            android:id="@+id/fl_load_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/shape_bg_white"
+            android:padding="40dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="获取数据失败\n 请点击重试"
+                android:textSize="18sp" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/jiexi_root"
+        android:layout_width="305dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/white"
+        android:visibility="gone"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        tools:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:padding="12dp"
+                android:text="单词释义"
+                android:textColor="@color/white"
+                android:textSize="18sp">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dip"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/word"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="center_vertical"
+                        android:text="Hello"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+
+                        android:id="@+id/pron"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/word"
+                        android:text="你好"
+                        android:textColor="#0f3454"
+
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/iv_audio"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:padding="5dp"
+                        android:src="@drawable/speaker" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/def"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="2dp">
+
+                <Button
+                    android:id="@+id/dialog_btn_addword"
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/app_vip_btn_bg"
+                    android:text="添加"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/close"
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="50dp"
+                    android:background="@drawable/app_vip_btn_bg"
+                    android:text="关闭"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <include
+        android:id="@+id/loading_view"
+        layout="@layout/dialog_loading_dubbing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="gone" />
+
+</RelativeLayout>

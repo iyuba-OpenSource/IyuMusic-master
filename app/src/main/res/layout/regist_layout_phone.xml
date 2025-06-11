@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.iyuba.music.widget.view.ImmersiveInsertFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/change_name_toolbar"
+            layout="@layout/toolbar_with_opersub" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/logo_old" />
+
+        <EditText
+            android:id="@+id/regist_phone_username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/lightgrey"
+            android:ems="10"
+            android:hint="@string/register_username_hint"
+            android:imeActionId="0"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textCursorDrawable="@null"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/regist_phone_paswd"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/lightgrey"
+            android:ems="10"
+            android:hint="@string/register_pwd_hint"
+            android:imeActionId="0"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/register_tip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/regist_phone_tocomplete" />
+
+        <Button
+            android:id="@+id/regist_phone_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/shape_green_button"
+            android:gravity="center"
+            android:text="@string/regist_oper"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</com.iyuba.music.widget.view.ImmersiveInsertFrameLayout>

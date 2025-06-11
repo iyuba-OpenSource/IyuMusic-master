@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_with_oper" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/vip_photo"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/row_space_medium"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/row_space_medium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/vip_photo"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/vip_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/title_text" />
+
+                <ImageView
+                    android:id="@+id/vip_status"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="@dimen/row_space_medium" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/vip_iyubi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/row_space_default"
+                android:textColor="@color/text_complementary"
+                android:textSize="@dimen/medium_text" />
+
+            <TextView
+                android:id="@+id/vip_deadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/row_space_default"
+                android:textColor="@color/text_complementary"
+                android:textSize="@dimen/medium_text" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_light"
+        android:paddingBottom="@dimen/row_space_medium"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/row_space_medium">
+
+        <TextView
+            android:id="@+id/vip_update_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="畅享爱语吧全站会员"
+            android:textColor="@color/text_complementary"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/vip_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/row_space_very_large"
+        android:paddingTop="@dimen/row_space_very_large"
+        android:visibility="gone"
+        app:mrl_rippleColor="@color/text_complementary"
+        app:mrl_rippleDuration="600">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/vip_month"
+            android:textColor="@color/text_complementary"
+            android:textSize="@dimen/big_text" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_thin"
+        android:background="#F0F0F0"
+        android:visibility="gone" />
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/vip_three_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/row_space_very_large"
+        android:paddingTop="@dimen/row_space_very_large"
+        android:visibility="gone"
+        app:mrl_rippleColor="@color/text_complementary"
+        app:mrl_rippleDuration="600">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/vip_three_month"
+            android:textColor="@color/text_complementary"
+            android:textSize="@dimen/big_text" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_thin"
+        android:background="#F0F0F0"
+        android:visibility="gone" />
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/vip_half_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/row_space_very_large"
+        android:paddingTop="@dimen/row_space_very_large"
+        android:visibility="gone"
+        app:mrl_rippleColor="@color/text_complementary"
+        app:mrl_rippleDuration="600">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/vip_half_year"
+            android:textColor="@color/text_complementary"
+            android:textSize="@dimen/big_text" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_thin"
+        android:background="#F0F0F0"
+        android:visibility="gone" />
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/vip_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/row_space_very_large"
+        android:paddingTop="@dimen/row_space_very_large"
+        android:visibility="gone"
+        app:mrl_rippleColor="@color/text_complementary"
+        app:mrl_rippleDuration="600">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/vip_year"
+            android:textColor="@color/text_complementary"
+            android:textSize="@dimen/big_text" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_thin"
+        android:background="#F0F0F0"
+        android:visibility="gone" />
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/vip_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/row_space_very_large"
+        android:paddingTop="@dimen/row_space_very_large"
+        android:visibility="gone"
+        app:mrl_rippleColor="@color/text_complementary"
+        app:mrl_rippleDuration="600">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="@string/vip_app"
+            android:textColor="@color/text_complementary"
+            android:textSize="@dimen/big_text" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+
+    <!--永久vip-->
+    <RelativeLayout
+        android:id="@+id/rl0"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+      >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="听歌学英语永久VIP     ¥199"
+            android:textColor="@color/text_complementary"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/rl_buyforevervip"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="#5DB449"
+            android:text="开通"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_alignParentBottom="true"
+            android:background="#E0E0E0" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/rl0"
+        >
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="全站会员1个月    ¥30"
+            android:textColor="@color/text_complementary"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btn_buyapp1"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="#5DB449"
+            android:text="开通"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_alignParentBottom="true"
+            android:background="#E0E0E0" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl2"
+     >
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="全站会员3个月    ¥88"
+            android:textColor="@color/text_complementary"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btn_buyapp2"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="#5DB449"
+            android:text="开通"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_alignParentBottom="true"
+            android:background="#E0E0E0" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl4"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl3"
+    >
+
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="全站会员6个月    ¥158"
+            android:textColor="@color/text_complementary"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btn_buyapp3"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="#5DB449"
+            android:text="开通"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_alignParentBottom="true"
+            android:background="#E0E0E0" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl5"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl4"
+       >
+
+        <TextView
+            android:id="@+id/tv6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="全站会员12个月   ¥298"
+            android:textColor="@color/text_complementary"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btn_buyapp4"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="#5DB449"
+            android:text="开通"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_alignParentBottom="true"
+            android:background="#E0E0E0" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="10dp"
+        android:text="(注：永久VIP仅限Android平台本应使用)"
+        android:textColor="@color/text_color" />
+
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/background_light">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/vip_buy_default"
+            android:textColor="@color/text_complementary"
+            android:textSize="@dimen/medium_text"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/vip_buy_way"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/row_space_very_large"
+        android:visibility="gone"
+        app:mrl_rippleColor="@color/text_complementary"
+        app:mrl_rippleDuration="600">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/vip_buy_way"
+            android:textColor="@color/skin_color_accent"
+            android:textSize="@dimen/large_text" />
+    </com.balysv.materialripple.MaterialRippleLayout>
+</LinearLayout>

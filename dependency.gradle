@@ -1,0 +1,32 @@
+project.ext {
+
+    retrofitVersion = '2.4.0'
+    okhttpVersion = '3.10.0'
+    rxandroidVersion = '2.1.0'
+    rxjavaVersion = '2.2.3'
+    glideVersion = '4.12.0'
+    eventBusVersion = '3.0.0'
+    butterKnifeVersion = '10.2.3'
+    permissionDispatcherVersion = '3.0.1'
+    timberVersion = '4.7.1'
+    ijkVersion = '0.8.8-modify@aar'
+
+    circleImageVersion = '2.2.0'
+    smartRefreshVersion = '1.1.0'
+    talameVersion = '1.1'
+    bannerVersion = '1.4.10'
+    dropDownViewVersion = '1.0.1'
+
+    iyubamoviesVersion = "1.0.6"
+    intelligenceVersion = "1.0.3"
+    headlinelibraryVersion = "1.0.10"
+    imooclibVersion = "1.0.11"
+
+    textpageVersion = "1.0.0"
+    progressWheelVersion = "1.0.0"
+
+    loopViewVersion = '0.1.2'
+    flycoVersion = '1.1.4'
+    gsonVersion = "2.8.5"
+
+}

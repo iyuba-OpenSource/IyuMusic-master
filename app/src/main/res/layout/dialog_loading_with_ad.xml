@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    tools:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg_white"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingEnd="4dp"
+            android:paddingStart="4dp">
+
+            <ImageView
+                android:id="@+id/iv_anim_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/publish_loading_anim"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <!--<ProgressBar-->
+            <!--android:id="@+id/progress_loading"-->
+            <!--style="@android:style/Widget.ProgressBar"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:indeterminateDrawable="@drawable/custom_progress_draw" />-->
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="4dp"
+                android:minLines="2"
+                android:text="正在发布配音，请耐心等待 \n成功后积分 +5"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="5dp"
+                android:text="配音发布成功\n积分 +5"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/tv_retry"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_gradient_blue_30_personal"
+                android:drawableLeft="@drawable/iv_publish_retry"
+                android:drawablePadding="6dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="重新上传"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                tools:visibility="gone" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_ad"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_ad"
+                android:layout_width="98dp"
+                android:layout_height="68dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/shape_trans_black"
+                android:scaleType="fitXY"
+                android:src="@drawable/loading" />
+
+            <TextView
+                android:id="@+id/tv_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/iv_ad"
+                android:maxLines="4"
+                android:padding="2dp"
+                android:textSize="13sp"
+                tools:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/iv_ad"
+                android:layout_alignRight="@id/iv_ad"
+                android:background="#96747474"
+                android:padding="2dp"
+                android:text="广告"
+                android:textColor="@color/white"
+                android:textSize="9sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#e2e2e2" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:padding="8dp"
+        android:src="@drawable/ic_close_gray" />
+</RelativeLayout>

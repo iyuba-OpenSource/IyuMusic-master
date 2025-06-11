@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_bar"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/skin_app_color"
+        android:fitsSystemWindows="true">
+
+        <TextView
+            android:id="@+id/tv_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:shadowColor="#ff000000"
+            android:shadowDx="3.0"
+            android:shadowDy="3.0"
+            android:shadowRadius="3.0"
+            android:text="购买会员"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff" />
+
+
+        <com.iyuba.music.activity.vip.Button
+            android:id="@+id/btn_back"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/ic_back"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <!-- <include
+         android:id="@+id/payorder_toolbar"
+         layout="@layout/partial_toolbar"/>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:background="@drawable/goldbuydes"/>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/payorder_username_hint_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名："
+            android:textColor="#a6a6a6" />
+
+        <TextView
+            android:id="@+id/payorder_username_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/payorder_username_hint_tv"
+            android:layout_toRightOf="@id/payorder_username_hint_tv"
+            android:textColor="#393939"
+            tools:text="iyuba" />
+
+
+        <TextView
+            android:id="@+id/payorder_orderinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/payorder_username_tv"
+            android:layout_marginTop="15dp"
+            android:text="订单信息："
+            android:textColor="#a6a6a6" />
+
+        <TextView
+            android:id="@+id/payorder_orderinfo_de"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/payorder_orderinfo"
+            android:layout_toRightOf="@id/payorder_orderinfo"
+            android:textColor="#393939"
+            tools:text="iyuba" />
+
+        <TextView
+            android:id="@+id/payorder_rmb_amount_hint_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/payorder_orderinfo"
+            android:layout_marginTop="15dp"
+            android:text="需要支付的人民币："
+            android:textColor="#a6a6a6" />
+
+        <TextView
+            android:id="@+id/payorder_rmb_amount_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/payorder_rmb_amount_hint_tv"
+            android:layout_toRightOf="@id/payorder_rmb_amount_hint_tv"
+            android:textColor="#F07203"
+            tools:text="19.9元" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="#dedede" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="选择支付方式"
+        android:textColor="#818181" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="#dedede" />
+
+    <com.iyuba.music.activity.vip.NoScrollListView
+        android:id="@+id/payorder_methods_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#dedede"
+        android:dividerHeight="1dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:src="#dedede" />
+
+    <TextView
+        android:id="@+id/buyvip_tv_agreement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:text="《会员服务协议》"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp" />
+
+
+    <Button
+        android:id="@+id/payorder_submit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/pay_confirm_button"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="确认支付"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+</LinearLayout>

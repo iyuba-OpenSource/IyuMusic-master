@@ -1,0 +1,400 @@
+apply plugin: 'com.android.application'
+//apply from: '../MobFm.gradle'
+apply from: '../MobMusic.gradle'
+
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd HH:mm:ss")
+}
+
+android {
+
+    compileSdk 34
+
+    namespace 'com.iyuba.music'
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    buildFeatures {
+
+        viewBinding true
+    }
+    signingConfigs {
+        releaseConfig {
+            keyAlias 'android.keystore'
+            keyPassword 'buaaiyuba'
+            storeFile file('iyuba_android.keystore')
+            storePassword 'buaaiyuba'
+        }
+    }
+    defaultConfig {
+        applicationId "com.iyuba.music2"
+
+        minSdkVersion 23
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 31
+        multiDexEnabled true
+        flavorDimensions = ["versionCode"]
+        Date now = new Date()
+        buildConfigField("String", "COMPILE_DATETIME", "\"${now.format('yyyy-MM-dd HH:mm:ss')}\"")
+        signingConfig signingConfigs.releaseConfig
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'arm64-v8a'
+//            abiFilters 'arm64-v8a',"armeabi-v7a"
+        }
+        manifestPlaceholders = [
+                AMAP_KEY: "6f7fc73f8693085d00183dc2c4cff571"
+        ]
+    }
+
+
+    buildTypes {
+        debug {
+            buildConfigField("String", "RELEASE_TIME", "\"" + releaseTime() + "\"")
+            signingConfig signingConfigs.releaseConfig
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    // 输出apk名称为great_v1.0_wandoujia.apk
+                    def fileName = "iyumusic_${variant.versionName}_debug.apk"
+                    outputFileName = fileName
+                }
+            }
+        }
+        release {
+            buildConfigField("String", "RELEASE_TIME", "\"" + releaseTime() + "\"")
+            signingConfig signingConfigs.releaseConfig
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    // 输出apk名称为great_v1.0_wandoujia.apk
+                    def fileName = "iyumusic_${variant.versionName}_release.apk"
+                    outputFileName = fileName
+                }
+            }
+            shrinkResources false
+            minifyEnabled false
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+
+        iyuba {
+            applicationId "com.iyuba.music"
+            versionCode 960  //xiaomi加+958
+            versionName "10.7.3255"
+            /*   versionCode 945
+               versionName "10.2.0520"*/
+
+            //处理不展示广告的问题
+            buildConfigField("long", "AD_TIME", "0")//单位秒
+            //处理小视频隐藏的问题
+            buildConfigField("long", "SMALL_VIDEO_TIME", "1702802226")//单位秒
+            //会员服务协议
+            buildConfigField "int", "AGREEMENT_COMPANY", '1'//北京爱语吧
+            manifestPlaceholders = [
+                    UMENG_CHANNEL_VALUE: "huawei",
+                    AMAP_KEY           : "6f7fc73f8693085d00183dc2c4cff571",
+                    MOB_KEY            : "1e93e2e17fe3e",
+                    MOB_APP_SECRET     : "20a214f48119fbbc88bbf729590618c0"
+            ]
+        }
+        englishfm {
+            applicationId "com.iyuba.englishfm"
+            versionCode 969
+            versionName "10.4.0517"
+            manifestPlaceholders = [
+                    AMAP_KEY           : "6f7fc73f8693085d00183dc2c4cff571",
+                    UMENG_CHANNEL_VALUE: "huawei"
+            ]
+        }
+        musicnew {
+            applicationId "com.iyuba.musicre"
+            versionCode 947
+            versionName "10.1.1"
+            manifestPlaceholders = [
+                    AMAP_KEY: "6f7fc73f8693085d00183dc2c4cff571",
+            ]
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    final PERMISSION_DISPATCHER_VERSION = "$rootProject.ext.permissionDispatcherVersion"
+    final RETROFIT_VERSION = "$rootProject.ext.retrofitVersion"
+    final OKHTTP_VERSION = "$rootProject.ext.okhttpVersion"
+
+    compileOnly fileTree(include: ['*.?ar'], dir: 'libs')
+
+
+    api('com.google.android.exoplayer:exoplayer-core:2.18.1') {
+        exclude group: 'androidx.core', module: 'core'
+    }
+
+    api(name: "player-1.2.8", ext: "aar")
+    api(name: "player-exo-1.2.8-alpha01", ext: "aar")
+    api(name: "player-extended-1.2.8", ext: "aar")
+    api(name: "player-ijk-1.2.8", ext: "aar")
+
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    api 'com.android.volley:volley:1.1.0'
+
+    api "androidx.percentlayout:percentlayout:1.0.0"
+    api "androidx.palette:palette:1.0.0"
+    api(name: 'Common-1.0.0', ext: 'aar')
+    api(name: 'WheelPicker-1.0.0', ext: 'aar')
+    /*歌曲缓存*/
+    api(name: 'videocache', ext: 'aar')
+
+    /*皮肤*/
+//    api(name: 'skin', ext: 'aar')
+
+    /*评论模块*/
+    api(name: 'comment', ext: 'aar')
+
+    /*筛图模块*/
+    api(name: 'image_selector', ext: 'aar')
+
+    /*水波效果*/
+    api 'com.balysv:material-ripple:1.0.2'
+
+    /*item动画*/
+    api 'jp.wasabeef:recyclerview-animators:1.3.0'
+
+    /*加载进度条小动画*/
+    api 'com.wang.avi:library:2.1.3'
+
+    /*返回动画*/
+    api 'com.balysv.materialmenu:material-menu:1.5.4'
+
+    /*damajia的刁刁库*/
+    api 'com.nineoldandroids:library:2.4.0'
+    api 'com.daimajia.easing:library:1.0.1@aar'
+    api 'com.daimajia.androidanimations:library:1.1.3@aar'
+
+    /*仿ios toggle button*/
+    api 'com.kyleduo.switchbutton:library:1.4.5'
+
+    /*解析json*/
+    api 'com.google.code.gson:gson:2.8.6'
+
+    /*volley*/
+//    api 'com.mcxiaoke.volley:library:1.0.19'
+
+    /*edittext*/
+    api 'com.rengwuxian.materialedittext:library:2.1.4'
+
+    /*分组recycleview*/
+    api 'com.bignerdranch.android:expandablerecyclerview:2.0.4'
+
+    /*友盟统计分析*/
+    //友盟
+    api 'com.umeng.umsdk:common:+'// 必选
+    implementation 'com.umeng.umsdk:asms:+'// 必选
+    implementation 'com.umeng.umsdk:apm:+' // 错误分析升级为独立SDK，看crash数据请一定集成，可选
+    implementation 'com.umeng.umsdk:abtest:+'//使用U-App中ABTest能力，可选
+
+    /*大图加载*/
+    api 'com.commit451:PhotoView:1.2.5'
+//    api 'com.github.bumptech.glide:volley-integration:1.5.0@aar'
+
+    /*截图*/
+    api 'com.isseiaoki:simplecropview:1.0.13'
+
+
+    api 'com.facebook.stetho:stetho:1.3.1'
+    api 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    api project(':camera')
+
+//    implementation 'com.devbrackets.android:exomedia:4.3.0'
+
+    api(name: 'exomedia-4.3.0-modify', ext: 'aar')
+//    api(name: 'msa_mdid_1.0.13', ext: 'aar')
+    api(name: 'youdaosdk_4.3.2', ext: 'aar')
+    api "com.airbnb.android:lottie:5.2.0"
+
+    api 'com.squareup.okio:okio:1.13.0'
+
+    /*通用对话框*/
+    api 'me.drakeet.materialdialog:library:1.3.1'
+
+    //微课，搜一搜 视频模块 -- 开始
+    api "com.google.android.material:material:1.0.0"
+    api "androidx.recyclerview:recyclerview:1.0.0"
+    api "androidx.cardview:cardview:1.0.0"
+    api 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api "com.github.naman14:TAndroidLame:$rootProject.ext.talameVersion"
+    api(name: "calendarview-2.0", ext: "aar")
+    api(name: "imooclib-1.7.0", ext: "aar")
+    api(name: "privacy-1.0.4", ext: "aar")
+    api(name: "waitdialog-1.2.1", ext: "aar")
+    api(name: "mse-0.2.7", ext: "aar")
+    api(name: "parse-0.2.4", ext: "aar")
+    api(name: "mp3trans-0.2.0", ext: "aar")
+    api(name: "resize-1.0.0", ext: "aar")
+    api(name: "infores-1.3.0", ext: "aar")
+    api(name: "universitypicker-0.2.1", ext: "aar")
+    api(name: "dlex-1.0.4", ext: "aar")
+    api(name: "toolbox-1.1.0", ext: "aar")
+    api(name: "mvp-1.0.0", ext: "aar")
+
+    api(name: "commonres-1.2.0", ext: "aar")
+    api(name: "commonvar-1.0.0", ext: "aar")
+    api(name: "headlinelibrary-1.7.9", ext: "aar")
+    api(name: "headlinesearch-1.3.1", ext: "aar")
+    api(name: "roundprogressbar-1.0.0", ext: "aar")
+    api(name: 'popmenu-0.2.2', ext: 'aar')
+    api(name: "intelligence-1.3.3", ext: "aar")
+    api(name: "iyubamovies-1.2.9", ext: "aar")
+    api(name: "basicfavor-1.2.8-alpha01", ext: "aar")
+    api(name: "basicdl-1.2.3-alpha01", ext: "aar")
+    api(name: "recycler-0.2.0", ext: "aar")
+    api(name: "imagetextview-1.2.1", ext: "aar")
+
+    api(name: "ijkplayer-arm64-0.8.8-modify", ext: "aar")
+    api(name: "ijkplayer-armv7a-0.8.8-modify", ext: "aar")
+    api(name: "ijkplayer-java-0.8.8-modify", ext: "aar")
+    api(name: "ijkplayer-x86-0.8.8-modify", ext: "aar")
+    api(name: "ijkplayer-x86_64-0.8.8-modify", ext: "aar")
+
+    api(name: "textpage-1.2.1", ext: "aar")
+    api(name: "progresswheel-1.0.1", ext: "aar")
+    api(name: 'subtitle-1.2.2', ext: "aar")
+
+    api "de.hdodenhof:circleimageview:$rootProject.ext.circleImageVersion"
+    api "com.scwang.smartrefresh:SmartRefreshLayout:$rootProject.ext.smartRefreshVersion"
+    api "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+    api "com.youth.banner:banner:$rootProject.ext.bannerVersion"
+
+    api "com.github.hotchemi:permissionsdispatcher:$PERMISSION_DISPATCHER_VERSION"
+    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:$PERMISSION_DISPATCHER_VERSION"
+
+    //retrofit2库的相关模块
+    api "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    api "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    api "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
+    api "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
+    api("com.squareup.retrofit2:converter-simplexml:$RETROFIT_VERSION") {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
+
+    //okhttp3的相关模块
+    api "com.squareup.okhttp3:okhttp:$OKHTTP_VERSION"
+    api "com.squareup.okhttp3:logging-interceptor:$OKHTTP_VERSION"
+    api "org.greenrobot:eventbus:$rootProject.ext.eventBusVersion"
+    api "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+
+    //微课，搜一搜 视频模块 --- 结束
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:+'
+
+    api(name: "sdk-0.3.9", ext: "aar")
+    api(name: "data-iyuba-0.2.0-fix2", ext: "aar")
+    api(name: "data-youdao-0.1.8-fix2", ext: "aar")
+    api(name: "data-ydsdk-0.3.9-fix2", ext: "aar")
+
+
+    api(name: "creator-1.0.0", ext: "aar")
+    api(name: "user-0.2.7", ext: "aar")
+    api(name: "adblocker-1.0.2", ext: "aar")
+    api(name: "mixed_converter-1.2.1", ext: "aar")
+
+    api(name: "MediaPlayer-4.4.1", ext: "aar")
+    api(name: "sonic-1.0.1", ext: "aar")
+
+    api "com.github.AnthonyFermin:DropDownView:$rootProject.ext.dropDownViewVersion"
+    api "com.weigan:loopView:$rootProject.ext.loopViewVersion"
+    api "com.flyco.roundview:FlycoRoundView_Lib:$rootProject.ext.flycoVersion"
+
+    api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
+    api "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
+
+    api(name: "share-0.1.3", ext: "aar")
+    api(name: "share-mob-0.1.3", ext: "aar")
+    api(name: "personalhomelibrary-1.6.2", ext: "aar")
+    api(name: "videocompressor-1.0", ext: "aar")
+    api(name: "vpager-0.1.0", ext: "aar")
+    /*大图加载*/
+    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+    implementation("com.daimajia.swipelayout:library:1.2.0@aar") {
+        exclude group: 'com.android.support'
+    }
+    implementation "com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:1.0.0"
+
+
+    api 'com.github.linger1216:labelview:v1.1.2'
+    api 'jp.wasabeef:glide-transformations:4.3.0'
+    api(name: "fileuploader-1.2.1", ext: "aar")
+    api(name: "alipaysdk-15.8.00.201112210139", ext: "aar")
+
+    def room_version = "2.5.0"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+
+    //广告
+    api(files("libs/mediatom-0.3.9-fix.aar"))
+    api(files("libs/ydsdk-0.3.9-fix.aar"))
+    api(files("libs/s2s-0.3.9.aar"))
+
+    api(files("libs/mediatom-tt-adapt-0.3.9-fix4.aar"))
+    api(files("libs/open_ad_sdk_6.6.0.7.aar"))
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    //倍孜
+    api(files("libs/mediatom-adhub-adapt-0.3.9.aar"))
+    api(files("libs/beizi_ad_sdk_3.5.0.9.aar"))
+    api(files("libs/beizi_fusion_sdk_4.90.4.11.aar"))
+    //百度广告
+    api(files("libs/mediatom-bd-adapt-0.3.9-fix-bdv9.373.aar"))
+    api(files("libs/Baidu_MobAds_SDK-release_v9.373.aar"))
+    //快手广告
+
+    api(files("libs/mediatom-ks-adapt-0.3.9.aar"))
+    api(files("libs/kssdk-ad-3.3.63-publishRelease-085cdfe109.aar"))
+    //腾讯广告
+    api(files("libs/mediatom-tx-adapt-0.3.9-fix2.aar"))
+    api(files("libs/GDTSDK.unionNormal.4.620.1490.aar"))
+
+    api(files("libs/mixnative-0.3.9-fix3.aar"))
+
+    //弹窗的框架
+    implementation 'io.github.razerdp:BasePopup:3.2.0'
+
+    implementation('com.github.lihangleo2:ShadowLayout:3.3.2') {
+        exclude module: 'glide'
+    }
+
+    api(files("libs/oaid_sdk_2.5.1.aar"))
+
+    implementation "androidx.datastore:datastore-preferences:1.1.1"
+
+    // optional - RxJava2 support
+    implementation "androidx.datastore:datastore-preferences-rxjava2:1.1.1"
+
+    implementation "cn.fly:FlyVerify:+@aar"
+    implementation "cn.fly.plugins:FlyPlugins-Cmcc:+@aar"
+    implementation "cn.fly.plugins:FlyPlugins-Cucc:+@aar"
+    implementation "cn.fly.plugins:FlyPlugins-XW:+@aar"
+    implementation "cn.fly.plugins:FlyPlugins-Ctcc:+@aar"
+}
+
